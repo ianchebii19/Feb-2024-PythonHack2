@@ -1,22 +1,44 @@
-{% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static%}
   <link rel="stylesheet" href="{% static 'styles.css' %}" />
    <!-- <link rel="stylesheet" href="/static/styles.css" /> -->
-  <title>Document</title>
+  <title>API RAN</title>
+
 </head>
 <body>
-  <h1>Hello, My name is Evans </h1>
+<form method="POST">{% csrf_token %}
+  <input type="text" placeholder="Enter a word" name="photo">
+  <button type="submit"> Enter</button>
+</form>
+ <img class="src1" src="https://source.unsplash.com/random/900×700/?" {{ photo } } alt="image">
+ 
+  <div class="diva">
+    
+    <div>
+      <h2>Facts</h2>
+      <p>  {{result}}</p></div>
+    <div>
+      <h2>Cool Staff</h2>
+  <p>{{result2}}</p>
+    </div>
+    <div>
+      <h1>Dog Breeds</h1>
 
-  {{result}}
 
-  <h1>Random Pet</h1>
-{{result2}}
-  <img src={{result2}} alt="random pet" />
-  
+      <img  class="src2" src={{result3}}>
+      
+    </div>
+
+  </div>
+
+
+
+
 </body>
 </html>

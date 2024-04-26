@@ -3,15 +3,21 @@ from django.shortcuts import render
 
 def home(request):
   # USING APIS => Example 1
-  response = requests.get('https://api.github.com/events')
-  data = response.json()
-  result = data[0]["repo"]
+  response = requests.get('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en')
+  res1 = response.json()
+  result = res1["text"]
 
-  # Example 2
-  reponse2 = requests.get('https://dog.ceo/api/breeds/image/random')
-  data2 = reponse2.json()
-  result2 = data2["message"]
+  response2 = requests.get('https://www.boredapi.com/api/activity')
+  data2 = response2.json()
+  result2 = data2["activity"]
+  response3 = requests.get('https://dog.ceo/api/breeds/image/random')
+  data3 = response3.json()
+  result3 = data3["message"]
+  if request.method == 'POST':
+    photo=request.POST['photo']
+  else:
+    photo=None
 
 
-  
-  return render(request, 'templates/index.html', {'result': result, 'result2': result2})
+
+  return render(request, 'templates/index.html', {'result': result,'photo':photo, 'result2': result2, 'result3': result3, })
